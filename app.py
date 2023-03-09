@@ -14,7 +14,7 @@ app = Flask(__name__)
 def proxy():
     params = urlencode(request.args)
     return my_proxy_client.session.post(
-        f'https://imhidingbehindawall.com?{params}',
+        f'https://im.hiding.behind.a.wall.com?{params}',
         data=request.data,
         headers=request.headers,
     )
@@ -22,4 +22,3 @@ def proxy():
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=8000)
-

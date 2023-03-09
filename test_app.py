@@ -9,5 +9,5 @@ def client(app):
 def test_proxy(mocker):
     mock_session = mocker.patch('app.my_proxy_client.session')
     test_payload = {'test': 'test'}
-    result = client.post('/proxy', data=test_payload)
+    result = client.post('/', data=test_payload)
     assert result

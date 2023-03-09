@@ -1,6 +1,4 @@
-from urllib3 import Retry
 import requests
-
 
 
 class MyProxyClient:
