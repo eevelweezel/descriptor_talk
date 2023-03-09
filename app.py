@@ -1,17 +1,21 @@
-from flask import Flask
+from urllib.parse import (
+    urlencode,
+    urljoin,
+)
+
+from flask import Flask, request
 from client import my_proxy_client
 
 
 app = Flask(__name__)
 
 
-@app.route('/proxy')
+@app.route('/')
 def proxy():
-    params = request.form['params']
-
+    params = urlencode(request.args)
     return my_proxy_client.session.post(
-        'https://imhidingbehindawall',
-        data=params.to_json(),
+        f'https://imhidingbehindawall.com?{params}',
+        data=request.data,
         headers=request.headers,
     )
 
